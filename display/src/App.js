@@ -5,21 +5,19 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
-  const [isName, setIsName] = useState(false);
 
   const handleFirstName = (e) => {
     setFirstName(e.target.value);
   };
+
   const handleLastName = (e) => {
     setLastName(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fullName = `${firstName} ${lastName}`;
-    setFullName(fullName);
-
-    setIsName(true);
+    const newFullName = `${firstName} ${lastName}`;
+    setFullName(newFullName);
   };
 
   return (
@@ -45,8 +43,8 @@ function App() {
         />
         <br />
         <button type="submit">Submit</button>
-        {isName && <p>Full Name: {fullName}</p>}
       </form>
+      {fullName && <p>Full Name: {fullName}</p>}
     </div>
   );
 }
